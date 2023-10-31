@@ -233,9 +233,8 @@ public class BM2 extends BookManager{
 
             }
             System.out.println("수정이 완료되었습니다.");
-        }
+        }else System.out.println("해당 도서가 존재하지 않습니다!!! ");
     }
-
 
     public void removeBook() {
         boolean check = true;
@@ -255,7 +254,6 @@ public class BM2 extends BookManager{
             System.out.println("해당 도서가 존재하지 않습니다.");
     }
 
-
     public int checkBook(long id){
 
         for (Book b: bookList){
@@ -267,7 +265,6 @@ public class BM2 extends BookManager{
                 } else return 1;
             }
         }
-        System.out.println("해당 도서가 존재하지 않습니다!!! ");
         return -1;
 
     }
@@ -278,7 +275,6 @@ public class BM2 extends BookManager{
                 return false;
         } return true;
     }
-
 
 }
 
