@@ -186,7 +186,6 @@ public class BM2 extends BookManager{
                     time = sc.nextLine();
                 }
             }
-
             switch (check) {
                 case 1:
                     for (Book b : bookList) {
@@ -237,7 +236,6 @@ public class BM2 extends BookManager{
         System.out.println("■■■■■■■■■■■ 도서 삭제 ■■■■■■■■■■■");
         System.out.println("삭제하고자 하는 도서의 도서번호를 입력하세요.");
         System.out.print("선택 >> ");
-
         if(Check(Long.parseLong(sc.nextLine())) >= 0) {
             bookList.remove(index);
             System.out.println("삭제가 완료되었습니다.");
