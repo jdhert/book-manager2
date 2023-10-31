@@ -91,10 +91,9 @@ public class BM2 extends BookManager{
         System.out.println("■■■■■■■■■■■ 도서 등록 ■■■■■■■■■■■");
         System.out.println("어떤 책을 등록하시겠습니까?(숫자입력) 1. Book 2. EBook 3. AudioBook");
         System.out.print(">> ");
-        String form = sc.nextLine();
-
-        int check = Integer.parseInt(form);
-        if(check >= 4 || check <= 0) {
+        String book = sc.nextLine();
+        int form = Integer.parseInt(book);
+        if(form >= 4 || form <= 0) {
             System.out.println("잘못된 숫자 입력하였습니다!!! :( ");
             return;
         }
@@ -114,17 +113,17 @@ public class BM2 extends BookManager{
             String isbn = sc.nextLine();
             System.out.print("(5) 출간일을 입력해주세요.(YYYY-MM-DD형식) >> ");
             String publishDate = sc.nextLine();
-            if(check >= 2) {
+            if(form >= 2) {
                 System.out.print("(6) 파일 사이즈를 입력해주세요. >> ");
                 file = sc.nextLine();
-                if(check >= 3) {
+                if(form >= 3) {
                     System.out.print("(7) 언어를 입력해주세요. >> ");
                     language = sc.nextLine();
                     System.out.print("(8) 오디오북 길이를 입력해주세요.(숫자) >> ");
                     time = sc.nextLine();
                 }
             }
-            switch (check) {
+            switch (form) {
                 case 1:
                     Book book1 = new Book(Long.parseLong(id),
                             name,
