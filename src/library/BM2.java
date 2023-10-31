@@ -21,7 +21,6 @@ public class BM2 extends BookManager{
 
     @Override
     void interactWithUser() {
-
             while (true) {
                 System.out.println("■■■■■■ 도서 관리 프로그램 ■■■■■■");
                 System.out.println("(1) 도서 조회");
@@ -98,12 +97,12 @@ public class BM2 extends BookManager{
         String time = "";
 
         System.out.println("■■■■■■■■■■■ 도서 등록 ■■■■■■■■■■■");
-        System.out.println("어떤 책을 등록하시겠습니까? 1. Book 2. EBook 3. AudioBook");
+        System.out.println("어떤 책을 등록하시겠습니까?(숫자입력) 1. Book 2. EBook 3. AudioBook");
         System.out.print(">> ");
         String form = sc.nextLine();
 
         int f = Integer.parseInt(form);
-        if(f >= 4) {
+        if(f >= 4 || f <= 0) {
             System.out.println("잘못된 숫자 입력하였습니다!!! :( ");
             return;
         }
