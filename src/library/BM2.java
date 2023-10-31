@@ -201,6 +201,7 @@ public class BM2 extends BookManager{
                             b.setAuthor(author);
                             b.setIsbn(Long.parseLong(isbn));
                             b.setPublishedDate(LocalDate.parse(publishDate));
+                            break;
                         }
                     }
                     break;
@@ -212,6 +213,7 @@ public class BM2 extends BookManager{
                             b.setIsbn(Long.parseLong(isbn));
                             b.setPublishedDate(LocalDate.parse(publishDate));
                             ((EBook) b).setFileSize(fileSize);
+                            break;
                         }
                     }
                     break;
@@ -225,6 +227,7 @@ public class BM2 extends BookManager{
                             ((AudioBook) b).setFileSize(fileSize);
                             ((AudioBook) b).setLanguage(language);
                             ((AudioBook) b).setPlayTime(Integer.parseInt(time));
+                            break;
                         }
                     }
                     break;
