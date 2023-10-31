@@ -28,7 +28,6 @@ public class BM2 extends BookManager{
                 System.out.println("(q) 프로그램 종료");
                 System.out.print("선택 >> ");
                 String userInput = sc.nextLine();
-
                 switch (userInput) {
                     case "1":
                         // 조회
@@ -97,14 +96,12 @@ public class BM2 extends BookManager{
             System.out.println("잘못된 숫자 입력하였습니다!!! :( ");
             return;
         }
-
         System.out.print("(1) 도서번호를 입력해주세요.(유일한 번호) >> ");
         String id = sc.nextLine();
         if(Check(Long.parseLong(id)) <= 0) {
             String file = "";
             String language = "";
             String time = "";
-
             System.out.print("(2) 도서명을 입력해주세요. >> ");
             String name = sc.nextLine();
             System.out.print("(3) 저자명을 입력해주세요. >> ");
@@ -231,7 +228,6 @@ public class BM2 extends BookManager{
         }else System.out.println("해당 도서가 존재하지 않습니다!!! ");
     }
     public void removeBook() {
-        boolean check = true;
         System.out.println("■■■■■■■■■■■ 도서 삭제 ■■■■■■■■■■■");
         System.out.println("삭제하고자 하는 도서의 도서번호를 입력하세요.");
         System.out.print("선택 >> ");
