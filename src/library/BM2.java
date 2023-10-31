@@ -2,13 +2,12 @@ package library;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class BM2 extends BookManager{
-
     private static ArrayList<Book> bookList = new ArrayList<>();
     private static Scanner sc = new Scanner(System.in);
-
     @Override
     void init() {
         bookList.add(new Book(1L, "돈의 속성(300쇄 리커버에디션)", "김승호", Long.parseLong("9791188331796"),
@@ -18,7 +17,6 @@ public class BM2 extends BookManager{
         bookList.add(new AudioBook(3L, "위기의 역사", "오건영", Long.parseLong("9791169850360"), LocalDate.parse("2023-07-19"),
                 "562MB", "한국어", 120));
     }
-
     @Override
     void interactWithUser() {
             while (true) {
@@ -59,7 +57,6 @@ public class BM2 extends BookManager{
 
             }
     }
-
     @Override
     public void printAllBook() {
         System.out.println("■■■■■■■■ 도서 목록 조회 ■■■■■■■■");
@@ -90,7 +87,6 @@ public class BM2 extends BookManager{
             System.out.println();
         }
     }
-
     public void addBook() {
         System.out.println("■■■■■■■■■■■ 도서 등록 ■■■■■■■■■■■");
         System.out.println("어떤 책을 등록하시겠습니까?(숫자입력) 1. Book 2. EBook 3. AudioBook");
@@ -105,7 +101,7 @@ public class BM2 extends BookManager{
 
         System.out.print("(1) 도서번호를 입력해주세요.(유일한 번호) >> ");
         String id = sc.nextLine();
-        if(idCheck(Long.parseLong(id))) {
+        if(Check(Long.parseLong(id)) <= 0) {
             String file = "";
             String language = "";
             String time = "";
@@ -161,13 +157,12 @@ public class BM2 extends BookManager{
             }
         } else System.out.println("ID값이 이미 존재합니다. ");
     }
-
     @Override
     public void updateBook() {
         System.out.println("수정 메서드 실행");
         System.out.print("수정하고자 하는 도서번호를 입력하세요: ");
         long id = Long.parseLong(sc.nextLine());
-        int check = checkBook(id);
+        int check = Check(id);
         if (check >= 0) {
             String fileSize = "";
             String language = "";
@@ -237,43 +232,29 @@ public class BM2 extends BookManager{
             System.out.println("수정이 완료되었습니다.");
         }else System.out.println("해당 도서가 존재하지 않습니다!!! ");
     }
-
     public void removeBook() {
         boolean check = true;
         System.out.println("■■■■■■■■■■■ 도서 삭제 ■■■■■■■■■■■");
         System.out.println("삭제하고자 하는 도서의 도서번호를 입력하세요.");
         System.out.print("선택 >> ");
-        long id = Long.parseLong(sc.nextLine());
-        for (Book b: bookList) {
-            if (id == b.getId()) {
-                bookList.remove(b);
-                System.out.println("삭제가 완료되었습니다.");
-                check = false;
-                break;
-            }
-        }
-        if(check)
-            System.out.println("해당 도서가 존재하지 않습니다.");
-    }
 
-    public int checkBook(long id){
-        for (Book b: bookList){
-            if(b.getId() == id) {
-                if(b instanceof  EBook)
+        if(Check(Long.parseLong(sc.nextLine())) >= 0) {
+            bookList.remove(index);
+            System.out.println("삭제가 완료되었습니다.");
+        } else System.out.println("해당 도서가 존재하지 않습니다.");
+    }
+    private static int index;
+    public int Check(long id){
+        for(int i=0; i<bookList.size(); i++) {
+            if (Objects.equals(bookList.get(i).getId(), id)) {
+                index = i;
+                if(bookList.get(i) instanceof EBook)
                     return 2;
-                else if (b instanceof  AudioBook) {
+                else if (bookList.get(i) instanceof AudioBook) {
                     return 3;
                 } else return 1;
             }
-        }
-        return -1;
-    }
-
-    public boolean idCheck(long id){
-        for (Book b: bookList){
-            if(b.getId() == id)
-                return false;
-        } return true;
+        }   return -1;
     }
 
 }
