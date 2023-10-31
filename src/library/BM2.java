@@ -92,10 +92,6 @@ public class BM2 extends BookManager{
     }
 
     public void addBook() {
-        String file = "";
-        String language = "";
-        String time = "";
-
         System.out.println("■■■■■■■■■■■ 도서 등록 ■■■■■■■■■■■");
         System.out.println("어떤 책을 등록하시겠습니까?(숫자입력) 1. Book 2. EBook 3. AudioBook");
         System.out.print(">> ");
@@ -110,6 +106,10 @@ public class BM2 extends BookManager{
         System.out.print("(1) 도서번호를 입력해주세요.(유일한 번호) >> ");
         String id = sc.nextLine();
         if(idCheck(Long.parseLong(id))) {
+            String file = "";
+            String language = "";
+            String time = "";
+
             System.out.print("(2) 도서명을 입력해주세요. >> ");
             String name = sc.nextLine();
             System.out.print("(3) 저자명을 입력해주세요. >> ");
@@ -159,7 +159,6 @@ public class BM2 extends BookManager{
                 default:
                     break;
             }
-
         } else System.out.println("ID값이 이미 존재합니다. ");
     }
 
@@ -258,7 +257,6 @@ public class BM2 extends BookManager{
     }
 
     public int checkBook(long id){
-
         for (Book b: bookList){
             if(b.getId() == id) {
                 if(b instanceof  EBook)
@@ -269,7 +267,6 @@ public class BM2 extends BookManager{
             }
         }
         return -1;
-
     }
 
     public boolean idCheck(long id){
