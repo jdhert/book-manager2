@@ -263,8 +263,7 @@ public class BM2 extends BookManager{
                     return 2;
                 else if (b instanceof  AudioBook) {
                     return 3;
-                }
-                return 1;
+                } else return 1;
             }
         }
         System.out.println("해당 도서가 존재하지 않습니다!!! ");
