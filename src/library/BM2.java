@@ -254,7 +254,7 @@ public class BM2 extends BookManager{
                     return 3;
                 } else return 1;
             }
-        }   return -1;
+        } return -1;
     }
 
 }
