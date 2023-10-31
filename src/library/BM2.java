@@ -97,8 +97,8 @@ public class BM2 extends BookManager{
         System.out.print(">> ");
         String form = sc.nextLine();
 
-        int f = Integer.parseInt(form);
-        if(f >= 4 || f <= 0) {
+        int check = Integer.parseInt(form);
+        if(check >= 4 || check <= 0) {
             System.out.println("잘못된 숫자 입력하였습니다!!! :( ");
             return;
         }
@@ -118,17 +118,17 @@ public class BM2 extends BookManager{
             String isbn = sc.nextLine();
             System.out.print("(5) 출간일을 입력해주세요.(YYYY-MM-DD형식) >> ");
             String publishDate = sc.nextLine();
-            if(f >= 2) {
+            if(check >= 2) {
                 System.out.print("(6) 파일 사이즈를 입력해주세요. >> ");
                 file = sc.nextLine();
-                if(f >= 3) {
+                if(check >= 3) {
                     System.out.print("(7) 언어를 입력해주세요. >> ");
                     language = sc.nextLine();
                     System.out.print("(8) 오디오북 길이를 입력해주세요.(숫자) >> ");
                     time = sc.nextLine();
                 }
             }
-            switch (f) {
+            switch (check) {
                 case 1:
                     Book book1 = new Book(Long.parseLong(id),
                             name,
@@ -167,8 +167,8 @@ public class BM2 extends BookManager{
         System.out.println("수정 메서드 실행");
         System.out.print("수정하고자 하는 도서번호를 입력하세요: ");
         long id = Long.parseLong(sc.nextLine());
-        int m = checkBook(id);
-        if (m >= 0) {
+        int check = checkBook(id);
+        if (check >= 0) {
             String fileSize = "";
             String language = "";
             String time = "";
@@ -181,10 +181,10 @@ public class BM2 extends BookManager{
             String isbn = sc.nextLine();
             System.out.print("출판일(YYYY-MM-DD): ");
             String publishDate = sc.nextLine();
-            if (m >= 2) {
+            if (check >= 2) {
                 System.out.print("파일사이즈: ");
                 fileSize = sc.nextLine();
-                if (m >= 3) {
+                if (check >= 3) {
                     System.out.print("언어: ");
                     language = sc.nextLine();
                     System.out.print("재생시간(숫자): ");
@@ -192,7 +192,7 @@ public class BM2 extends BookManager{
                 }
             }
 
-            switch (m) {
+            switch (check) {
                 case 1:
                     for (Book b : bookList) {
                         if (b.getId().equals(id)) {
