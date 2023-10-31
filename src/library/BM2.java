@@ -185,13 +185,14 @@ public class BM2 extends BookManager{
             if (m >= 2) {
                 System.out.print("파일사이즈: ");
                 fileSize = sc.nextLine();
+                if (m >= 3) {
+                    System.out.print("언어: ");
+                    language = sc.nextLine();
+                    System.out.print("재생시간(숫자): ");
+                    time = sc.nextLine();
+                }
             }
-            if (m >= 3) {
-                System.out.print("언어: ");
-                language = sc.nextLine();
-                System.out.print("재생시간(숫자): ");
-                time = sc.nextLine();
-            }
+
             switch (m) {
                 case 1:
                     for (Book b : bookList) {
